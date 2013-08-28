@@ -1,0 +1,10 @@
+/* Setup build configurations in the pre:compile task to modify the default behaviour */
+
+task("pre:compile",function(event,logger){
+    logger.showTimestamp = true;
+    logger.info('building project at '+ event.dir.project);
+});
+
+task("post:compile",function(event,logger){
+    logger.info('compile finished!');
+});

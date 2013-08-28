@@ -1,33 +1,9 @@
-var baseUrl = "http://services.forrent.com/", 
+var SearchApi = require('search'), 
 globalResponses = {}, 
 tempPos = {
 	latitude:0,
 	longitude:0
 };
-
-function searchFromLatLong(inputLat, inputLong){
-	if(inputLat != tempPos.latitude & inputLong != tempPos.longitude){
-		tempPos.latitude = inputLat;
-		tempPos.longitude = inputLong;
-		var url = baseUrl + "ipad.php?latitude=" + inputLat + "&longitude=" + inputLong + "&radius=15&beds=99&maxPrice=9999&numberOfResults=20";
-		
-		var client = Ti.Network.createHTTPClient({
-			// function called when the response data is available
-			onload : function(e) {
-				globalResponses = JSON.parse(this.responseText);
-				publishResponses();
-			},
-			// function called when an error occurs, including a timeout
-			onerror : function(e) {
-				Ti.API.debug(e.error);
-				alert('error');
-			},
-			timeout : 5000 // in milliseconds
-		});
-		client.open("GET", url);
-		client.send();
-	}
-}
 
 function publishResponses(){
 	for(var index=0; index < globalResponses.length; index++){
@@ -77,7 +53,14 @@ function setMapToFitResults(){
 function setRegion(evt) {
     Ti.Geolocation.purpose = "We want to know where you are";
     Ti.Geolocation.getCurrentPosition(function(position){
-    	searchFromLatLong(position.coords.latitude, position.coords.longitude);	
+    	if(position.coords.latitude != tempPos.latitude & position.coords.longitude != tempPos.longitude){
+			tempPos.latitude = position.coords.latitude;
+			tempPos.longitude = position.coords.longitude;
+	    	SearchApi.search(tempPos.latitude, tempPos.longitude, function(res){
+	    		globalResponses = res;
+				publishResponses();
+	    	});
+    	}
         setMapToFitResults();
     });
 }
