@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/AFOpenFlow/AFUIImageReflection.m \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/AFOpenFlow/AFUIImageReflection.h
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/AFOpenFlow/AFUIImageReflection.m \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/AFOpenFlow/AFUIImageReflection.h

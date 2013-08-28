@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/KrollPropertyDelegate.m \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/KrollPropertyDelegate.h
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/KrollPropertyDelegate.m \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/KrollPropertyDelegate.h

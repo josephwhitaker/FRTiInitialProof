@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/AudioStreamer/AudioStreamerCUR.m \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/AudioStreamer/AudioStreamerCUR.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/AudioStreamer/AudioStreamer.h
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/AudioStreamer/AudioStreamerCUR.m \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/AudioStreamer/AudioStreamerCUR.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/AudioStreamer/AudioStreamer.h

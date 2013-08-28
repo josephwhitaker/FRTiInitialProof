@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiUICanvasViewProxy.m
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiUICanvasViewProxy.m

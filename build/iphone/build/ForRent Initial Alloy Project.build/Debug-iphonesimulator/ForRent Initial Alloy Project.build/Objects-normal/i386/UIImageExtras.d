@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/AFOpenFlow/UIImageExtras.m \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/AFOpenFlow/UIImageExtras.h
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/AFOpenFlow/UIImageExtras.m \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/AFOpenFlow/UIImageExtras.h

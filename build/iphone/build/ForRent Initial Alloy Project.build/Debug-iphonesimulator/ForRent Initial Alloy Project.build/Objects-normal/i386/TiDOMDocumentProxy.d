@@ -1,22 +1,22 @@
 dependencies: \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiDOMDocumentProxy.m \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiDOMDocumentProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiBase.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiThreading.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiPublicAPI.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiEvaluator.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/KrollContext.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/headers/TiCore/TiCore.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiDOMDocumentProxy.m \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiDOMDocumentProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiBase.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiThreading.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiPublicAPI.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiEvaluator.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/KrollContext.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/headers/TiCore/TiCore.h \
   headers/TiCore/Ti.h headers/TiCore/TiBase.h \
   headers/TiCore/TiContextRef.h headers/TiCore/TiObjectRef.h \
   headers/TiCore/TiValueRef.h headers/TiCore/WebKitAvailability.h \
   headers/TiCore/TiStringRef.h headers/TiCore/TiStringRefCF.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/headers/TiCore/TiContextRefPrivate.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/KrollCallback.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/KrollObject.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiBindingRunLoop.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/GDataXMLNode.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/headers/TiCore/TiContextRefPrivate.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/KrollCallback.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/KrollObject.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiBindingRunLoop.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/GDataXMLNode.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/libxml2/libxml/tree.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/libxml2/libxml/xmlversion.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/libxml2/libxml/xmlexports.h \
@@ -40,24 +40,24 @@ dependencies: \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/libxml2/libxml/SAX2.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/libxml2/libxml/xpath.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/libxml2/libxml/xpathInternals.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiDOMNodeProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiDOMNodeListProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiDOMTextNodeProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TIDOMCharacterDataProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiDOMElementProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiDOMAttrProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiDOMCDATANodeProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiDOMCommentProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiDOMPIProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiDOMDocFragProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TIDOMDOMImplementationProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TIDOMDocumentTypeProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiDOMEntityRefProxy.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiUtils.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiDimension.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiColor.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/WebFont.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiFile.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiBuffer.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiBlob.h \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/TiDOMValidator.h
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiDOMNodeProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiDOMNodeListProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiDOMTextNodeProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TIDOMCharacterDataProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiDOMElementProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiDOMAttrProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiDOMCDATANodeProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiDOMCommentProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiDOMPIProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiDOMDocFragProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TIDOMDOMImplementationProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TIDOMDocumentTypeProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiDOMEntityRefProxy.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiUtils.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiDimension.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiColor.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/WebFont.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiFile.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiBuffer.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiBlob.h \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/TiDOMValidator.h

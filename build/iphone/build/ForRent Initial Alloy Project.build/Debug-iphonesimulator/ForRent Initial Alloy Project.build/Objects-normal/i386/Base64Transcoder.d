@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/Base64Transcoder.c \
-  /Users/joseph.whitaker/Projects/FRTiInitialProof/APP/build/iphone/Classes/Base64Transcoder.h
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/Base64Transcoder.c \
+  /Users/joseph.whitaker/Documents/Titanium_Studio_Workspace/FRTiInitialProof/build/iphone/Classes/Base64Transcoder.h
