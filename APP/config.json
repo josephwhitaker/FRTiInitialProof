@@ -1,8 +1,17 @@
 {
 	"global": {}, 
-	"env:development": {}, 
-	"env:test": {}, 
-	"env:production": {}, 
+	"env:development": {
+		"FRApi-SearchEndpoint": "http://webservice.vvidala.frlabs.com/ipad.php",
+		"FRApi-ProfileEndpoint": "http://webservice.vvidala.frlabs.com/ipadGetSite.php"
+	}, 
+	"env:test": {
+		"FRApi-SearchEndpoint": "http://services.forrent.com/ipad.php",
+		"FRApi-ProfileEndpoint": "http://services.forrent.com/ipadGetSite.php"
+	}, 
+	"env:production": {
+		"FRApi-SearchEndpoint": "http://services.forrent.com/ipad.php",
+		"FRApi-ProfileEndpoint": "http://services.forrent.com/ipadGetSite.php"
+	}, 
 	"os:android": {},
 	"os:blackberry": {},
 	"os:ios": {},
