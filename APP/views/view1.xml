@@ -1,6 +1,6 @@
 <Alloy>
 	<View id="view1" ns="Ti.Map" onComplete="setRegion"
-            animate="true" regionFit="true" userLocation="true"
+            animate="true" regionFit="true"
             mapType="Ti.Map.STANDARD_TYPE" >
 	</View>
 </Alloy>
