@@ -1,1 +1,0 @@
-module.exports={"dependencies":{"ds.slideMenu":"0.1"},"FRApi-SearchEndpoint":"http://webservice.vvidala.frlabs.com/ipad.php","FRApi-ProfileEndpoint":"http://webservice.vvidala.frlabs.com/ipadGetSite.php"};
