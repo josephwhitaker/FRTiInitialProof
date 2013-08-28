@@ -1,4 +1,4 @@
-var SearchApi = require('/libs/search.js'), 
+var SearchApi = require('search'), 
 globalResponses = {}, 
 tempPos = {
 	latitude:0,
@@ -56,7 +56,7 @@ function setRegion(evt) {
     	if(position.coords.latitude != tempPos.latitude & position.coords.longitude != tempPos.longitude){
 			tempPos.latitude = position.coords.latitude;
 			tempPos.longitude = position.coords.longitude;
-	    	searchFromLatLong(tempPos.latitude, tempPos.longitude, function(res){
+	    	SearchApi.search(tempPos.latitude, tempPos.longitude, function(res){
 	    		globalResponses = res;
 				publishResponses();
 	    	});
