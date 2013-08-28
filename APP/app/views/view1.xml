@@ -1,5 +1,5 @@
 <Alloy>
-	<View id="view1" ns="Ti.Map"
+	<View id="view1" ns="Ti.Map" onComplete="setRegion"
             animate="true" regionFit="true" userLocation="true"
             mapType="Ti.Map.STANDARD_TYPE" >
 	</View>

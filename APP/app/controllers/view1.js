@@ -1,11 +1,11 @@
 function setRegion(evt) {
     // For the iOS platform, wait for the complete event to ensure the region is set
-    var loc = Ti.Geolocation.getCurrentPosition()
-    Ti.API.info(loc);
-    if (OS_IOS) {
+    var userLoc;
+    Ti.Geolocation.purpose = "We want to know where you are";
+    Ti.Geolocation.getCurrentPosition(function(position){
         $.view1.region = {
-            latitude:37.390749, longitude:-122.081651,
+            latitude:position.coords.latitude, longitude:position.coords.longitude,
             latitudeDelta:0.01, longitudeDelta:0.01
         };
-    }
+    });
 }
