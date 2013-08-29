@@ -8,12 +8,26 @@ tempPos = {
 function publishResponses(){
 	for(var index=0; index < globalResponses.length; index++){
 		var result = globalResponses[index],
+		displayAddress="",
 	 	resultToMap = Ti.Map.createAnnotation();	
 		resultToMap.setLatitude(result.latitude);
 		resultToMap.setLongitude(result.longitude);
 		resultToMap.setTitle(result.name);
+		displayAddress = result.address1;
+		if(result.address2 != ""){
+			displayAddress += ", " + result.address2;
+		}
+		displayAddress += ", " + result.city;
+		displayAddress += ", " + result.state;
+		resultToMap.setSubtitle(displayAddress);
+		resultToMap.id = result.site_id;
+		resultToMap.addEventListener('click',function(evt){
+var profile = Alloy.createController("profile").getView();
+profile.open();
+		});		
 		$.view1.addAnnotation(resultToMap);
 		result = null;
+		resultToMap = null;
 	}
 }
 
