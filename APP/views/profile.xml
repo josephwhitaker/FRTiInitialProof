@@ -1,0 +1,5 @@
+<Alloy>
+	<Window id="profile">
+		<Label>profile goes here</Label>
+	</Window>
+</Alloy>
