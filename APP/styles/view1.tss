@@ -1,0 +1,12 @@
+"#fauxAnnotation": {
+	bottom: 0,
+	backgroundColor: "#333",
+	font: {
+        fontFamily:'Helvetica',
+        fontSize: '12dp',
+        fontStyle: 'normal',
+        fontWeight: 'normal'
+	},
+	height: 0,
+	opacity: '.80'
+}
