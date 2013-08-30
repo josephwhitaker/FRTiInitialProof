@@ -4,7 +4,16 @@ searchResults = {},
 tempPos = {
 	latitude:0,
 	longitude:0
-};
+},
+isAndroid = false;
+
+if (Titanium.Platform.name == 'android') {
+isAndroid = true;
+}
+
+if(isAndroid){
+	setRegion();
+}
 
 
 function publishResponses(){
@@ -26,7 +35,8 @@ function publishResponses(){
 		displayAddress += ", " + result.state;
 		resultToMap.setSubtitle(displayAddress);
 		resultToMap.id = result.site_id;
-		resultToMap.addEventListener("click",function(evt){				
+		resultToMap.addEventListener("click",function(evt){
+			evt.annotation.addEventListener("click",function(){openProfile();});
 			propObj = {
 				floorplans:evt.annotation.floorplans,
 				image:evt.annotation.displayImage
@@ -79,7 +89,6 @@ function setRegion(evt) {
 			tempPos.latitude = position.coords.latitude;
 			tempPos.longitude = position.coords.longitude;
 	    	SearchApi.search(tempPos.latitude, tempPos.longitude, function(res){
-	    		//JSONtoSQL.JSONtoSQL(res,"searchResults","results");
 	    		searchResults = res;
 				publishResponses();
 	    	});
@@ -93,15 +102,29 @@ function liftAnnotation(propObj){
 	for(var i=0;i < propObj.floorplans.length; i++){
 		var tempLabel = Ti.UI.createLabel({
   			color: '#fff',
-  			text: propObj.floorplans[i].text,
   			textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
   			left: "120dp",
   			top: 20*i + "dp"		
 		});
+		if(i === 4){
+			tempLabel.setText("More...");
+		} else {
+			tempLabel.setText(propObj.floorplans[i].text);
+		}
 		$.annFloorPlans.add(tempLabel);
 		tempLabel=null;
 	}
-	Ti.API.info(propObj);
 	$.annImage.setImage(propObj.image);
 	$.fauxAnnotation.height = 100;
+	$.fauxAnnotation.addEventListener('click',function(){openProfile();});
+}
+
+function openProfile(){
+	var profile = Alloy.createController("profile").getView();
+	if (Ti.Platform.osname === 'iphone')
+		profile.open({
+			transition : Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
+		});
+	else
+		profile.open();
 }
