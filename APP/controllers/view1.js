@@ -1,18 +1,23 @@
-var SearchApi = require('search'), 
-globalResponses = {}, 
+var SearchApi = require('search'),
+JSONtoSQL = require('JSONtoSQL'),
+searchResults = {},
 tempPos = {
 	latitude:0,
 	longitude:0
 };
 
+
 function publishResponses(){
-	for(var index=0; index < globalResponses.length; index++){
-		var result = globalResponses[index],
+	for(var index=0; index < searchResults.length; index++){
+		var result = searchResults[index],
 		displayAddress="",
+		propObj = {},
 	 	resultToMap = Ti.Map.createAnnotation();	
 		resultToMap.setLatitude(result.latitude);
 		resultToMap.setLongitude(result.longitude);
 		resultToMap.setTitle(result.name);
+		resultToMap.displayImage = result.images[0];
+		resultToMap.floorplans = result.floorplans;
 		displayAddress = result.address1;
 		if(result.address2 != ""){
 			displayAddress += ", " + result.address2;
@@ -21,10 +26,13 @@ function publishResponses(){
 		displayAddress += ", " + result.state;
 		resultToMap.setSubtitle(displayAddress);
 		resultToMap.id = result.site_id;
-		resultToMap.addEventListener('click',function(evt){
-var profile = Alloy.createController("profile").getView();
-profile.open();
-		});		
+		resultToMap.addEventListener("click",function(evt){				
+			propObj = {
+				floorplans:evt.annotation.floorplans,
+				image:evt.annotation.displayImage
+			};
+			liftAnnotation(propObj);
+		});
 		$.view1.addAnnotation(resultToMap);
 		result = null;
 		resultToMap = null;
@@ -33,8 +41,8 @@ profile.open();
 
 function setMapToFitResults(){
 	var olLeft=0, olRight=0, olTop=0, olBottom=0;
-	for(var index=0; index < globalResponses.length; index++){
-		var result = globalResponses[index];
+	for(var index=0; index < searchResults.length; index++){
+		var result = searchResults[index];
 		if(index===0){
 			olLeft=result.longitude;
 			olRight=result.longitude;
@@ -71,10 +79,29 @@ function setRegion(evt) {
 			tempPos.latitude = position.coords.latitude;
 			tempPos.longitude = position.coords.longitude;
 	    	SearchApi.search(tempPos.latitude, tempPos.longitude, function(res){
-	    		globalResponses = res;
+	    		//JSONtoSQL.JSONtoSQL(res,"searchResults","results");
+	    		searchResults = res;
 				publishResponses();
 	    	});
     	}
         setMapToFitResults();
     });
+}
+
+function liftAnnotation(propObj){
+	$.annFloorPlans.removeAllChildren();
+	for(var i=0;i < propObj.floorplans.length; i++){
+		var tempLabel = Ti.UI.createLabel({
+  			color: '#fff',
+  			text: propObj.floorplans[i].text,
+  			textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+  			left: "120dp",
+  			top: 20*i + "dp"		
+		});
+		$.annFloorPlans.add(tempLabel);
+		tempLabel=null;
+	}
+	Ti.API.info(propObj);
+	$.annImage.setImage(propObj.image);
+	$.fauxAnnotation.height = 100;
 }
