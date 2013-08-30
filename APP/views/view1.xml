@@ -1,7 +1,8 @@
 <Alloy>
 	<View id="view1" ns="Ti.Map" onComplete="setRegion" animate="true" regionFit="true" mapType="Ti.Map.STANDARD_TYPE">
 		<View id="fauxAnnotation">
-			<Label>beer</Label>
+			<ImageView id="annImage"/>
+			<View id="annFloorPlans"></View>			
 		</View>
 	</View>
 </Alloy>
