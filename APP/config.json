@@ -1,7 +1,7 @@
 {
 	"global": {}, 
 	"env:development": {
-		"FRApi_SearchEndpoint": "http://webservice.vvidala.frlabs.com/ipad.php",
+		"FRApi_SearchEndpoint": "http://mobile.vvidala.frlabs.com/frproto",
 		"FRApi_ProfileEndpoint": "http://webservice.vvidala.frlabs.com/ipadGetSite.php"
 	}, 
 	"env:test": {
