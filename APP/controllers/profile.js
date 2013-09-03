@@ -1,0 +1,3 @@
+function alertHere(){
+	alert("here!");
+}
