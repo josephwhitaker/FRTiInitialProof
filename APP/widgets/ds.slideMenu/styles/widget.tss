@@ -16,8 +16,8 @@
 	top: "0dp",
 	left: "0dp",
 	width : Ti.Platform.displayCaps.platformWidth,
-	height : "44",
-	backgroundImage : '/ds.slideMenu/NavBackground.png'
+	height : "44dp",
+	backgroundImage : '/ds.slideMenu/NavBG.png'
 },
 "#movableview": {
 	left: "0",
