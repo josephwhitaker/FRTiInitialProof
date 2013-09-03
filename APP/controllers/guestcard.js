@@ -1,3 +1,2 @@
-var parseQS, baseURL="http://forrent.jwhitaker.frlabs.com/guestcard/", suffix=".php?iframe=1", locID;
-locID = Alloy.Collections.locID;
-$.guestcard.url = baseURL + locID + suffix;
+var parseQS, baseURL="http://forrent.jwhitaker.frlabs.com/guestcard/", suffix=".php?iframe=1";
+$.guestcard.url = baseURL + Alloy.Collections.result.site_id + suffix;
