@@ -1,3 +1,5 @@
 function alertHere(){
-	alert("here!");
+	Alloy.Collections.locID = 1000068898;
+	var guestcard = Alloy.createController("guestcard").getView();
+	guestcard.open();
 }
