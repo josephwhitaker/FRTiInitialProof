@@ -115,11 +115,15 @@ function liftAnnotation(propObj){
 	$.annFloorPlans.removeAllChildren();
 	for(var i=0;i < propObj.floorplans.length; i++){
 		var tempLabel = Ti.UI.createLabel({
-  			color: '#fff',
   			textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
   			left: "120dp",
   			top: 20*i + "dp"		
 		});
+		if(!isAndroid){
+			tempLabel.color = "#fff";
+		} else {
+			tempLabel.color = "#000";
+		}
 		if(i === 4){
 			tempLabel.setText("More...");
 			i = propObj.floorplans.length;
@@ -131,6 +135,9 @@ function liftAnnotation(propObj){
 	}
 	$.annImage.setImage(propObj.image);
 	if (isAndroid){
+		$.fauxAnnotation.backgroundColor = "#fff";
+		$.fauxAnnotation.left = 20;
+		$.fauxAnnotation.top = 20;
 		$.annImage.height = 100;
 		$.annImage.width = 100;
 		$.annImage.top = 10;
@@ -144,7 +151,6 @@ function liftAnnotation(propObj){
 }
 
 function openProfile(){
-	var profile = Alloy.createController("profile").getView();
 	if (isAndroid){	
 		$.view1.removeAllChildren();
 		$.view1.removeEventListener('click',function(evt){
@@ -154,8 +160,10 @@ function openProfile(){
 				};
 				liftAnnotation(propObj);
 			});			
+		var profile = Alloy.createController("profile").getView();
 		profile.open();
 	}else{
+		var profile = Alloy.createController("profile").getView();
 		profile.open({
 			transition : Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
 		});
