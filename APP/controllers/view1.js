@@ -1,10 +1,18 @@
 var SearchApi = require('search'),
-JSONtoSQL = require('JSONtoSQL'),
 searchResults = {},
 tempPos = {
 	latitude:0,
 	longitude:0
-};
+},
+isAndroid = false;
+
+if (Titanium.Platform.name == 'android') {isAndroid = true;}
+
+if(isAndroid){
+	setRegion();
+	$.fauxAnnotation.height = 0;
+	$.fauxAnnotation.width = 0;
+}
 
 
 function publishResponses(){
@@ -27,16 +35,31 @@ function publishResponses(){
 		displayAddress += ", " + result.state;
 		resultToMap.setSubtitle(displayAddress);
 		resultToMap.id = result.site_id;
-		resultToMap.addEventListener("click",function(evt){				
-			propObj = {
-				floorplans:evt.annotation.floorplans,
-				image:evt.annotation.displayImage
-			};
-			liftAnnotation(propObj);
-		});
+		resultToMap.image = "/pushpin.png";
+		if(!isAndroid){
+			resultToMap.addEventListener("click",function(evt){
+				evt.annotation.addEventListener("click",function(){openProfile();});
+				propObj = {
+					floorplans:evt.annotation.floorplans,
+					image:evt.annotation.displayImage
+				};
+				liftAnnotation(propObj);
+			});
+		}		
 		$.view1.addAnnotation(resultToMap);
 		result = null;
 		resultToMap = null;
+	}
+	if(isAndroid){
+		$.view1.addEventListener('click',function(evt){
+			if(evt.annotation != undefined){
+				propObj = {
+					floorplans:evt.annotation.floorplans,
+					image:evt.annotation.displayImage
+				};
+			}
+			liftAnnotation(propObj);
+		});
 	}
 }
 
@@ -74,13 +97,14 @@ function setMapToFitResults(){
 }
 
 function setRegion(evt) {
-    Ti.Geolocation.purpose = "We want to know where you are";
+	if(!isAndroid){
+    	Ti.Geolocation.purpose = "We want to know where you are";
+   	}
     Ti.Geolocation.getCurrentPosition(function(position){
     	if(position.coords.latitude != tempPos.latitude & position.coords.longitude != tempPos.longitude){
 			tempPos.latitude = position.coords.latitude;
 			tempPos.longitude = position.coords.longitude;
 	    	SearchApi.search(tempPos.latitude, tempPos.longitude, function(res){
-	    		//JSONtoSQL.JSONtoSQL(res,"searchResults","results");
 	    		searchResults = res;
 				publishResponses();
 	    	});
@@ -93,16 +117,49 @@ function liftAnnotation(propObj){
 	$.annFloorPlans.removeAllChildren();
 	for(var i=0;i < propObj.floorplans.length; i++){
 		var tempLabel = Ti.UI.createLabel({
-  			color: '#fff',
-  			text: propObj.floorplans[i].text,
   			textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
   			left: "120dp",
   			top: 20*i + "dp"		
 		});
+		if(!isAndroid){
+			tempLabel.color = "#fff";
+		} else {
+			tempLabel.color = "#000";
+		}
+		if(i === 4){
+			tempLabel.setText("More...");
+			i = propObj.floorplans.length;
+		} else {
+			tempLabel.setText(propObj.floorplans[i].text);
+		}
 		$.annFloorPlans.add(tempLabel);
 		tempLabel=null;
 	}
-	Ti.API.info(propObj);
 	$.annImage.setImage(propObj.image);
-	$.fauxAnnotation.height = 100;
+	if (isAndroid){
+		$.fauxAnnotation.backgroundColor = "#fff";
+		$.fauxAnnotation.left = 20;
+		$.fauxAnnotation.top = 20;
+		$.annImage.height = 100;
+		$.annImage.width = 100;
+		$.annImage.top = 10;
+		$.annImage.left = 10;
+		$.annImage.bottom = 20;
+		$.annFloorPlans.right = 10;
+	} else {
+		$.fauxAnnotation.height = 125;
+	}
+	$.fauxAnnotation.addEventListener('click',function(){openProfile();});
+}
+
+function openProfile(){
+	if(isAndroid){
+		var profile = Alloy.createController("profile").getView();
+		profile.open();
+	} else {
+		var profile = Alloy.createController("profile").getView();
+		profile.open({
+			transition : Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
+		});
+	}
 }

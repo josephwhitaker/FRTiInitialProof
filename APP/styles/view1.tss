@@ -1,5 +1,4 @@
 "#fauxAnnotation": {
-	bottom: 0,
 	backgroundColor: "#333",
 	font: {
         fontFamily:'Helvetica',
@@ -7,17 +6,25 @@
         fontStyle: 'normal',
         fontWeight: 'normal'
 	},
-	height: 0,
+	height: 0
+},
+"#fauxAnnotation[platform=ios]": {
+	bottom: 0,
+	width: Ti.UI.FILL,
 	opacity: '.80'
 },
-"#annImage":{
+"#annImage[platform=ios]":{
 	height:"100dp",
 	width: "100dp",
 	top: "10dp",
 	left:"10dp"
 },
-"#annTitle":{
-	top: "10dp",
-	left: "100dp",
-    color: 'white'
+"#fauxAnnotation[platform=android]":{
+	backgroundColor: "#fff"
+},
+"#annFloorPlans[platform=android]":{
+	color:"#000"
+},
+"#annFloorPlans[platform=ios]":{
+	color:"#fff"
 }
