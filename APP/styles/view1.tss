@@ -1,5 +1,4 @@
 "#fauxAnnotation": {
-	bottom: 0,
 	backgroundColor: "#333",
 	font: {
         fontFamily:'Helvetica',
@@ -10,14 +9,13 @@
 	height: 0,
 	opacity: '.80'
 },
-"#annImage":{
+"#fauxAnnotation[platform=ios]": {
+	bottom: 0,
+	width: Ti.UI.FILL
+},
+"#annImage[platform=ios]":{
 	height:"100dp",
 	width: "100dp",
 	top: "10dp",
 	left:"10dp"
-},
-"#annTitle":{
-	top: "10dp",
-	left: "100dp",
-    color: 'white'
 }

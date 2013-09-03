@@ -7,12 +7,12 @@ tempPos = {
 },
 isAndroid = false;
 
-if (Titanium.Platform.name == 'android') {
-isAndroid = true;
-}
+if (Titanium.Platform.name == 'android') {isAndroid = true;}
 
 if(isAndroid){
 	setRegion();
+	$.fauxAnnotation.height = 0;
+	$.fauxAnnotation.width = 0;
 }
 
 
@@ -35,17 +35,29 @@ function publishResponses(){
 		displayAddress += ", " + result.state;
 		resultToMap.setSubtitle(displayAddress);
 		resultToMap.id = result.site_id;
-		resultToMap.addEventListener("click",function(evt){
-			evt.annotation.addEventListener("click",function(){openProfile();});
+		resultToMap.image = "/pushpin.png";
+		if(isAndroid !== true){
+			resultToMap.addEventListener("click",function(evt){
+				evt.annotation.addEventListener("click",function(){openProfile();});
+				propObj = {
+					floorplans:evt.annotation.floorplans,
+					image:evt.annotation.displayImage
+				};
+				liftAnnotation(propObj);
+			});
+		}		
+		$.view1.addAnnotation(resultToMap);
+		result = null;
+		resultToMap = null;
+	}
+	if(isAndroid){
+		$.view1.addEventListener('click',function(evt){
 			propObj = {
 				floorplans:evt.annotation.floorplans,
 				image:evt.annotation.displayImage
 			};
 			liftAnnotation(propObj);
 		});
-		$.view1.addAnnotation(resultToMap);
-		result = null;
-		resultToMap = null;
 	}
 }
 
@@ -83,7 +95,9 @@ function setMapToFitResults(){
 }
 
 function setRegion(evt) {
-    Ti.Geolocation.purpose = "We want to know where you are";
+	if(!isAndroid){
+    	Ti.Geolocation.purpose = "We want to know where you are";
+   	}
     Ti.Geolocation.getCurrentPosition(function(position){
     	if(position.coords.latitude != tempPos.latitude & position.coords.longitude != tempPos.longitude){
 			tempPos.latitude = position.coords.latitude;
@@ -108,6 +122,7 @@ function liftAnnotation(propObj){
 		});
 		if(i === 4){
 			tempLabel.setText("More...");
+			i = propObj.floorplans.length;
 		} else {
 			tempLabel.setText(propObj.floorplans[i].text);
 		}
@@ -115,16 +130,34 @@ function liftAnnotation(propObj){
 		tempLabel=null;
 	}
 	$.annImage.setImage(propObj.image);
-	$.fauxAnnotation.height = 100;
+	if (isAndroid){
+		$.annImage.height = 100;
+		$.annImage.width = 100;
+		$.annImage.top = 10;
+		$.annImage.left = 10;
+		$.annImage.bottom = 20;
+		$.annFloorPlans.right = 10;
+	} else {
+		$.fauxAnnotation.height = 125;
+	}
 	$.fauxAnnotation.addEventListener('click',function(){openProfile();});
 }
 
 function openProfile(){
 	var profile = Alloy.createController("profile").getView();
-	if (Ti.Platform.osname === 'iphone')
+	if (isAndroid){	
+		$.view1.removeAllChildren();
+		$.view1.removeEventListener('click',function(evt){
+				propObj = {
+					floorplans:evt.annotation.floorplans,
+					image:evt.annotation.displayImage
+				};
+				liftAnnotation(propObj);
+			});			
+		profile.open();
+	}else{
 		profile.open({
 			transition : Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
 		});
-	else
-		profile.open();
+	}
 }
