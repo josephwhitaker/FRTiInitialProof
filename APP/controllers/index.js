@@ -70,35 +70,35 @@ for (var i = 0; i < 4; i++) {
 }
 
 // Pass data to widget leftTableView and rightTableView
-$.ds.leftTableView.data = leftData;
+//$.ds.leftTableView.data = leftData;
 $.ds.rightTableView.data = rightData;
 
 var currentView = Alloy.createController("view1").getView();
 $.ds.contentview.add(currentView);
 
 // Swap views on menu item click
-$.ds.leftTableView.addEventListener('click', function selectRow(e) {
-	rowSelect(e);
-	$.ds.toggleLeftSlider();
-});
+//$.ds.leftTableView.addEventListener('click', function selectRow(e) {
+//	rowSelect(e);
+//	$.ds.toggleLeftSlider();
+//});
 $.ds.rightTableView.addEventListener('click', function selectRow(e) {
 	rowSelect(e);
 	$.ds.toggleRightSlider();
 });
 
 // Set row title highlight colour (left table view)
-var storedRowTitle = null;
-$.ds.leftTableView.addEventListener('touchstart', function(e) {
-	storedRowTitle = e.row.customTitle;
-	storedRowTitle.color = "#FFF";
-});
-$.ds.leftTableView.addEventListener('touchend', function(e) {
-	storedRowTitle.color = "#666";
-});
-$.ds.leftTableView.addEventListener('scroll', function(e) {
-	if (storedRowTitle != null)
-		storedRowTitle.color = "#666";
-});
+//var storedRowTitle = null;
+//$.ds.leftTableView.addEventListener('touchstart', function(e) {
+//	storedRowTitle = e.row.customTitle;
+//	storedRowTitle.color = "#FFF";
+//});
+//$.ds.leftTableView.addEventListener('touchend', function(e) {
+//	storedRowTitle.color = "#666";
+//});
+//$.ds.leftTableView.addEventListener('scroll', function(e) {
+//	if (storedRowTitle != null)
+//		storedRowTitle.color = "#666";
+//});
 
 // Set row title highlight colour (right table view)
 var storedRowTitle = null;
@@ -116,10 +116,10 @@ $.ds.rightTableView.addEventListener('scroll', function(e) {
 
 Ti.App.addEventListener("sliderToggled", function(e) {
 	if (e.direction == "right") {
-		$.ds.leftMenu.zIndex = 2;
+		//$.ds.leftMenu.zIndex = 2;
 		$.ds.rightMenu.zIndex = 1;
 	} else if (e.direction == "left") {
-		$.ds.leftMenu.zIndex = 1;
+		//$.ds.leftMenu.zIndex = 1;
 		$.ds.rightMenu.zIndex = 2;
 	}
 });
