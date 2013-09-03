@@ -1,5 +1,4 @@
 var SearchApi = require('search'),
-JSONtoSQL = require('JSONtoSQL'),
 searchResults = {},
 tempPos = {
 	latitude:0,
@@ -36,7 +35,7 @@ function publishResponses(){
 		resultToMap.setSubtitle(displayAddress);
 		resultToMap.id = result.site_id;
 		resultToMap.image = "/pushpin.png";
-		if(isAndroid !== true){
+		if(!isAndroid){
 			resultToMap.addEventListener("click",function(evt){
 				evt.annotation.addEventListener("click",function(){openProfile();});
 				propObj = {
@@ -52,10 +51,12 @@ function publishResponses(){
 	}
 	if(isAndroid){
 		$.view1.addEventListener('click',function(evt){
-			propObj = {
-				floorplans:evt.annotation.floorplans,
-				image:evt.annotation.displayImage
-			};
+			if(evt.annotation != undefined){
+				propObj = {
+					floorplans:evt.annotation.floorplans,
+					image:evt.annotation.displayImage
+				};
+			}
 			liftAnnotation(propObj);
 		});
 	}
@@ -151,18 +152,10 @@ function liftAnnotation(propObj){
 }
 
 function openProfile(){
-	if (isAndroid){	
-		$.view1.removeAllChildren();
-		$.view1.removeEventListener('click',function(evt){
-				propObj = {
-					floorplans:evt.annotation.floorplans,
-					image:evt.annotation.displayImage
-				};
-				liftAnnotation(propObj);
-			});			
+	if(isAndroid){
 		var profile = Alloy.createController("profile").getView();
 		profile.open();
-	}else{
+	} else {
 		var profile = Alloy.createController("profile").getView();
 		profile.open({
 			transition : Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
