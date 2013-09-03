@@ -6,14 +6,14 @@
     <property name="acs-oauth-secret-development" type="string">IdwOVkQfMSCvlhK0KOB0D2Nzj6YDypAg</property>
     <property name="acs-oauth-key-development" type="string">qNBJPNfnlScjYpIqdjkOW9V7FHrjXiB7</property>
     <property name="acs-api-key-development" type="string">eGdKg1M9pX9lrbFxGBqosIzNLUXdKYfP</property>
-    <id>com.forrent.com</id>
-    <name>ForRent Initial Alloy Project</name>
+    <id>com.forrent.FRProto</id>
+    <name>FRProto</name>
     <version>1.0</version>
     <publisher>ForRent</publisher>
     <url>http://</url>
     <description>Initial Project to show off Alloy Abilities</description>
     <copyright>2013 by ForRent</copyright>
-    <icon>frc-apple-touch-icon.png</icon>
+    <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
     <statusbar-style>default</statusbar-style>

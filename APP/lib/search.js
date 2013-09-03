@@ -21,7 +21,4 @@ exports.search= function(lat, lon, callBack /*, radius, beds, budget, pageSize *
 	});
 	client.open("GET", url);
 	client.send();
-   	
-   	
-	null;
 };
