@@ -16,8 +16,9 @@ function publishResponses(){
 		resultToMap.setLatitude(result.latitude);
 		resultToMap.setLongitude(result.longitude);
 		resultToMap.setTitle(result.name);
+		resultToMap.data = result;
 		resultToMap.displayImage = result.images[0];
-		resultToMap.floorplans = result.floorplans;
+		resultToMap.floorplans = result.consolidatedFps;
 		displayAddress = result.address1;
 		if(result.address2 != ""){
 			displayAddress += ", " + result.address2;
