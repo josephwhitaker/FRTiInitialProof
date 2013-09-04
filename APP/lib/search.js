@@ -17,7 +17,7 @@ exports.search= function(lat, lon, callBack /*, radius, beds, budget, pageSize *
 			Ti.API.debug(JSON.stringify(e));
 			alert('error');
 		},
-		timeout : 5000 // in milliseconds
+		timeout : 75000 // in milliseconds
 	});
 	client.open("GET", url);
 	client.send();

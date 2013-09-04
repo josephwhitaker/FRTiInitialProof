@@ -25,8 +25,6 @@ function publishResponses(){
 		resultToMap.setLongitude(result.longitude);
 		resultToMap.setTitle(result.name);
 		resultToMap.data = result;
-		resultToMap.displayImage = result.images[0];
-		resultToMap.floorplans = result.consolidatedFps;
 		displayAddress = result.address1;
 		if(result.address2 != ""){
 			displayAddress += ", " + result.address2;
@@ -34,16 +32,11 @@ function publishResponses(){
 		displayAddress += ", " + result.city;
 		displayAddress += ", " + result.state;
 		resultToMap.setSubtitle(displayAddress);
-		resultToMap.id = result.site_id;
 		resultToMap.image = "/pushpin.png";
 		if(!isAndroid){
 			resultToMap.addEventListener("click",function(evt){
 				evt.annotation.addEventListener("click",function(){openProfile();});
-				propObj = {
-					floorplans:evt.annotation.floorplans,
-					image:evt.annotation.displayImage
-				};
-				liftAnnotation(propObj);
+				liftAnnotation(evt.annotation.data);
 			});
 		}		
 		$.view1.addAnnotation(resultToMap);
@@ -53,10 +46,9 @@ function publishResponses(){
 	if(isAndroid){
 		$.view1.addEventListener('click',function(evt){
 			if(evt.annotation != undefined){
-				propObj = {
-					floorplans:evt.annotation.floorplans,
-					image:evt.annotation.displayImage
-				};
+				propObj = evt.annotation.data;
+			} else {
+				propObj = null;
 			}
 			liftAnnotation(propObj);
 		});
@@ -115,27 +107,30 @@ function setRegion(evt) {
 
 function liftAnnotation(propObj){
 	$.annFloorPlans.removeAllChildren();
-	for(var i=0;i < propObj.floorplans.length; i++){
-		var tempLabel = Ti.UI.createLabel({
-  			textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
-  			left: "120dp",
-  			top: 20*i + "dp"		
-		});
-		if(!isAndroid){
-			tempLabel.color = "#fff";
-		} else {
-			tempLabel.color = "#000";
+	if(propObj != null){
+		for(var i=0;i < propObj.floorplans.length; i++){
+			var tempLabel = Ti.UI.createLabel({
+	  			textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	  			left: "120dp",
+	  			top: 20*i + "dp"		
+			});
+			if(!isAndroid){
+				tempLabel.color = "#fff";
+			} else {
+				tempLabel.color = "#000";
+			}
+			if(i === 4){
+				tempLabel.setText("More...");
+				i = propObj.floorplans.length;
+			} else {
+				tempLabel.setText(propObj.consolidatedFps[i].text);
+			}
+			$.annFloorPlans.add(tempLabel);
+			tempLabel=null;
 		}
-		if(i === 4){
-			tempLabel.setText("More...");
-			i = propObj.floorplans.length;
-		} else {
-			tempLabel.setText(propObj.floorplans[i].text);
-		}
-		$.annFloorPlans.add(tempLabel);
-		tempLabel=null;
+		Alloy.Collections.result = propObj;
 	}
-	$.annImage.setImage(propObj.image);
+	$.annImage.setImage(propObj.images[0]);
 	if (isAndroid){
 		$.fauxAnnotation.backgroundColor = "#fff";
 		$.fauxAnnotation.left = 20;

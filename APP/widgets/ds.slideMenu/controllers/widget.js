@@ -34,18 +34,18 @@ $.movableview.addEventListener('touchend', function(e) {
 	}
 	if ($.movableview.left >= 150 && touchRightStarted) {
 		direction = "right";
-		$.leftButton.touchEnabled = false;
+		//$.leftButton.touchEnabled = false;
 		$.movableview.animate(animateRight);
 		hasSlided = true;
-	}
-	else if ($.movableview.left <= -150 && touchLeftStarted) {
-		direction = "left";
-		$.rightButton.touchEnabled = false;
-		$.movableview.animate(animateLeft);
-		hasSlided = true;
+	//}
+	//else if ($.movableview.left <= -150 && touchLeftStarted) {
+	//	direction = "left";
+	//	$.rightButton.touchEnabled = false;
+	//	$.movableview.animate(animateLeft);
+	//	hasSlided = true;
 	} else {
 		direction = "reset";
-		$.leftButton.touchEnabled = true;
+		//$.leftButton.touchEnabled = true;
 		$.rightButton.touchEnabled = true;
 		$.movableview.animate(animateReset);
 		hasSlided = false;
@@ -55,7 +55,7 @@ $.movableview.addEventListener('touchend', function(e) {
 		direction : direction
 	});
 	touchRightStarted = false;
-	touchLeftStarted = false;
+	//touchLeftStarted = false;
 });
 
 $.movableview.addEventListener('touchmove', function(e) {
@@ -97,12 +97,12 @@ $.movableview.addEventListener('touchmove', function(e) {
 	}
 });
 
-$.leftButton.addEventListener('touchend', function(e) {
-	if (!touchRightStarted && !touchLeftStarted) {
-		buttonPressed = true;
-		$.toggleLeftSlider();
-	}
-});
+//$.leftButton.addEventListener('touchend', function(e) {
+//	if (!touchRightStarted && !touchLeftStarted) {
+//		buttonPressed = true;
+//		$.toggleLeftSlider();
+//	}
+//});
 
 $.rightButton.addEventListener('touchend', function(e) {
 	if (!touchRightStarted && !touchLeftStarted) {
@@ -111,7 +111,7 @@ $.rightButton.addEventListener('touchend', function(e) {
 	}
 });
 
-exports.toggleLeftSlider = function() {
+/*exports.toggleLeftSlider = function() {
 	if (!hasSlided) {
 		direction = "right";
 		$.leftButton.touchEnabled = false;
@@ -127,7 +127,7 @@ exports.toggleLeftSlider = function() {
 		hasSlided : hasSlided,
 		direction : direction
 	});
-}
+}*/
 
 exports.toggleRightSlider = function() {
 	if (!hasSlided) {

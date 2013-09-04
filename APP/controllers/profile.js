@@ -1,3 +1,4 @@
 function alertHere(){
-	alert("here!");
+	var guestcard = Alloy.createController("guestcard").getView();
+	guestcard.open();
 }

@@ -36,15 +36,6 @@
     shadowOffset:{x:"0",y:"0"},
     shadowRadius:"2.5"
 },
-"#leftButton": {
-	backgroundImage : 'none',
-	image : "/ds.slideMenu/ButtonMenu.png",
-	left : "0",
-	top : "0",
-	width : "60",
-	height : "44",
-	style : "none"
-},
 "#rightButton": {
 	backgroundImage : 'none',
 	image : "/ds.slideMenu/ButtonMenu.png",
