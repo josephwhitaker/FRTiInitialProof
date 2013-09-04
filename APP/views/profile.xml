@@ -1,5 +1,5 @@
 <Alloy>
 	<Window id="profile">
-		<Label onClick="alertHere">profile goes here</Label>
+		<Button id="star" onClick="saveProfileToLocalDB"/>
 	</Window>
 </Alloy>

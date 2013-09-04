@@ -1,5 +1,7 @@
 {
-	"global": {}, 
+	"global": {
+		"profiles_database" : "frProfileDB"
+	}, 
 	"env:development": {
 		"FRApi_SearchEndpoint": "http://mobile.vvidala.frlabs.com/frproto",
 		"FRApi_ProfileEndpoint": "http://webservice.vvidala.frlabs.com/ipadGetSite.php"
