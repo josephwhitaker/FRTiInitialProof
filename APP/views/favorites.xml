@@ -1,0 +1,6 @@
+<Alloy>
+	<TableView id="favTable">
+		<TableViewSection id="sectionFav" headerTitle="Favorites">
+		</TableViewSection>
+	</TableView>
+</Alloy>

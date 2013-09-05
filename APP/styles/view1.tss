@@ -27,4 +27,11 @@
 },
 "#annFloorPlans[platform=ios]":{
 	color:"#fff"
+},
+"#favBox":{
+	width: "50dp",
+	height: "50dp",
+	right:0,
+	top:5,
+	backgroundImage: "favorites.png"
 }
