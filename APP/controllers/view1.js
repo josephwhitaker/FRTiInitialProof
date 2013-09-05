@@ -14,6 +14,12 @@ if(isAndroid){
 	$.fauxAnnotation.width = 0;
 }
 
+$.favBox.addEventListener("click",function(evt){
+	var favs = Alloy.createController("favorites").getView(),
+	parent = Alloy.Globals.parent;
+	parent.remove($.view1);
+	parent.add(favs);
+});
 
 function publishResponses(){
 	for(var index=0; index < searchResults.length; index++){
@@ -148,13 +154,8 @@ function liftAnnotation(propObj){
 }
 
 function openProfile(){
-	if(isAndroid){
-		var profile = Alloy.createController("profile").getView();
-		profile.open();
-	} else {
-		var profile = Alloy.createController("profile").getView();
-		profile.open({
-			transition : Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
-		});
-	}
+	var profile = Alloy.createController("profile").getView();
+	var parent = Alloy.Globals.parent;
+	parent.remove($.view1);
+	parent.add(profile);
 }
